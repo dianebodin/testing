@@ -69,10 +69,10 @@ describe("Interval", () => {
   });
 
 
-  it("should return an object for 3h3mn15s", () => {
-    const o = intervalToObject(3*60*60*1000 + 3*60*1000 + 15*1025);
+  it("should return an object for 3days, 3h3mn15s", () => {
+    const o = intervalToObject(3*60*60*1000*24 + 3*60*60*1000 + 3*60*1000 + 15*1025);
     expect(o).toEqual({
-      days: 0,
+      days: 3,
       hours: 3,
       minutes: 3,
       seconds: 15
@@ -81,7 +81,7 @@ describe("Interval", () => {
 
 
   it("should handle negative number", () => {
-    const o = intervalToObject(3*60*60*1000 + 3*60*1000 + 15*1025);
+    const o = intervalToObject(-3*60*60*1000 + -3*60*1000 + -15*1025);
     expect(o).toEqual({
       days: 0,
       hours: 3,
